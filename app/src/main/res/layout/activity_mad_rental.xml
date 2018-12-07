@@ -1,56 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MadRentalActivity"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MadRentalActivity"
     >
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Mad Rental"
-        android:textStyle="italic"
+        android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="50dp"
-        android:textAlignment="center"
+        android:textStyle="italic"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/BTNmesresa"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:background="@drawable/background"
+        android:text="Mes réservations"
+        android:textAllCaps="false"
         android:textColor="@color/colorTextButton"
+        android:textSize="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="Mes réservations"
-        android:textSize="25dp"
-        android:textAllCaps="false"
-        tools:layout_editor_absoluteY="99dp"
+        app:layout_constraintTop_toBottomOf="@+id/title"
         tools:ignore="MissingConstraints" />
 
 
-
-
     <Button
+        android:id="@+id/BTNprofil"
         android:layout_width="296dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:background="@drawable/background"
+        android:text="Mon profil"
+        android:textAllCaps="false"
         android:textColor="@color/colorTextButton"
+        android:textSize="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="Mon profil"
-        android:textSize="25dp"
-        android:textAllCaps="false"
-        tools:layout_editor_absoluteY="172dp"
-        tools:ignore="MissingConstraints"/>
+        app:layout_constraintTop_toBottomOf="@+id/BTNmesresa"
+        android:layout_marginTop="20dp"
+         />
 
     <TextView
+        android:id="@+id/txtrech"
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:text="Lancer une recherche : "
@@ -58,25 +61,26 @@
         android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="253dp"
-        tools:ignore="MissingConstraints"/>
+        app:layout_constraintTop_toBottomOf="@+id/BTNprofil"
+        android:layout_marginTop="20dp"/>
 
-    <Button
+    <EditText
+        android:id="@+id/INPdebut"
         android:layout_width="355dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_bg_rounded_corners"
         android:text="Date de début de réservation"
-        android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@color/colorTextButton2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="18dp"
         android:paddingLeft="30dp"
         android:gravity="bottom"
-        tools:layout_editor_absoluteY="292dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtrech"
+        android:layout_marginTop="20dp"
         />
 
-    <Button
+    <EditText
+        android:id="@+id/INPfin"
         android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:text="Date de fin de réservation"
@@ -85,13 +89,14 @@
         android:textSize="18dp"
         android:textAllCaps="false"
         android:textColor="@color/colorTextButton2"
-        tools:layout_editor_absoluteY="348dp"
-        android:background="@drawable/button_bg_rounded_corners"
         android:gravity="bottom"
         android:paddingLeft="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/INPdebut"
+        android:layout_marginTop="10dp"
         />
 
     <Button
+        android:id="@+id/BTNrech"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/background"
@@ -102,5 +107,8 @@
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="428dp" />
+        app:layout_constraintTop_toBottomOf="@+id/INPfin"
+        android:layout_marginTop="20dp"
+        />
+
 </android.support.constraint.ConstraintLayout>
