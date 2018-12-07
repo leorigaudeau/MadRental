@@ -6,30 +6,82 @@
     android:layout_height="match_parent"
     tools:context=".ProfilActivity">
 
-    <Button
-        android:id="@+id/lala"
-        android:layout_width="67dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Merci de renseigner votre profil :"
+        android:textAllCaps="false"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_marginTop="35dp"
+        android:textColor="@color/titreprofil"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+
+    <EditText
+        android:id="@+id/INPNom"
+        android:layout_width="355dp"
+        android:layout_height="40dp"
+        android:hint="Nom"
+        android:textColor="@color/colorTextButton2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="18dp"
+        android:paddingLeft="30dp"
+        android:background="@drawable/radiusbutton"
+        android:gravity="fill"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginTop="35dp"
+        />
+
+    <EditText
+        android:id="@+id/INPPrenom"
+        android:layout_width="355dp"
+        android:layout_height="40dp"
+        android:hint="Prénom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorTextButton2"
+        android:gravity="fill"
+        android:paddingLeft="30dp"
+        android:background="@drawable/radiusbutton"
+        app:layout_constraintTop_toBottomOf="@+id/INPNom"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/INPNaissance"
+        android:layout_width="355dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/radiusbutton"
+        android:gravity="fill"
+        android:hint="Date de naissance"
+        android:paddingLeft="30dp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorTextButton2"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/INPPrenom" />
 
     <Button
-        android:id="@+id/lili"
-        android:layout_width="58dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lala" />
+        android:id="@+id/BTNvalider"
+        android:layout_width="296dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/background"
+        android:text="Valider"
+        android:textAllCaps="false"
+        android:textColor="@color/colorTextButton"
+        android:textSize="25dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/INPNaissance" />
 </android.support.constraint.ConstraintLayout>

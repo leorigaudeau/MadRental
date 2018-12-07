@@ -68,6 +68,7 @@
         android:id="@+id/INPdebut"
         android:layout_width="355dp"
         android:layout_height="40dp"
+        android:inputType="date"
         android:hint="Date de début de réservation"
         android:textColor="@color/colorTextButton2"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -79,12 +80,13 @@
         app:layout_constraintTop_toBottomOf="@+id/txtrech"
         android:layout_marginTop="20dp"
         />
-v
+
     <EditText
         android:id="@+id/INPfin"
         android:layout_width="355dp"
         android:layout_height="40dp"
         android:hint="Date de fin de réservation"
+        android:inputType="date"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="18dp"
