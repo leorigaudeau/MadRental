@@ -17,6 +17,7 @@ public class ReservationActivity extends AppCompatActivity {
         // init :
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
+
         RecyclerView recyclerView = findViewById(R.id.liste_resa);
         // à ajouter pour de meilleures performances :
         recyclerView.setHasFixedSize(true);

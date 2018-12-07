@@ -28,9 +28,9 @@ public class ListeAdapter extends RecyclerView.Adapter<ListeViewHolder>
     public void onBindViewHolder(ListeViewHolder holder, int position)
     {
         holder.textViewLibelleIntutile.setText(listObjc.get(position).intitule);
-        holder.textViewLibellePrix.setText("-"+String.valueOf(listObjc.get(position).prix)+"€");
-        holder.textViewLibelleDebut.setText(listObjc.get(position).debut);
-        holder.textViewLibelleFin.setText(listObjc.get(position).fin);
+        holder.textViewLibellePrix.setText(" - "+String.valueOf(listObjc.get(position).prix)+" € ");
+        holder.textViewLibelleDebut.setText("Date de début :"+listObjc.get(position).debut);
+        holder.textViewLibelleFin.setText("Date de fin :"+listObjc.get(position).fin);
     }
     @Override
     public int getItemCount()
