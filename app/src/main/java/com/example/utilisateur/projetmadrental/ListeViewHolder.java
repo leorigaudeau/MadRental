@@ -20,7 +20,7 @@ public class ListeViewHolder extends RecyclerView.ViewHolder
         textViewLibellePrix = itemView.findViewById(R.id.object_prix);
         textViewLibelleDebut = itemView.findViewById(R.id.object_debut);
         textViewLibelleFin = itemView.findViewById(R.id.object_fin);
-        textViewimageURL = itemView.findViewById(R.id.object_image);
+       // textViewimageURL = itemView.findViewById(R.id.object_image);
 
     }
 }
