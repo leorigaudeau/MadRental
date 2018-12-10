@@ -7,5 +7,7 @@
     <color name="colorTextButton2">#8d9daa</color>
     <color name="titreprofil">#060605</color>
     <color name ="bgcommentaire">#e6e5e5</color>
+    <color name ="bgoptions">#d1ced4</color>
+    <color name="btnoui">#00bd03</color>
 
 </resources>

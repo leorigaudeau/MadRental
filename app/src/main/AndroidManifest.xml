@@ -13,7 +13,11 @@
 
         <activity android:name=".MadRentalActivity"
             android:label = "Mad Rental">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
         </activity>
@@ -37,11 +41,7 @@
         <activity android:name=".ReservationEtape2"
             android:label="Etape 2/2 : Reservation"
             android:parentActivityName=".ReservationEtape1">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
