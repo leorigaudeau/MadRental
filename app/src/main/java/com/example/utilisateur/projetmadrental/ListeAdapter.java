@@ -3,8 +3,10 @@ package com.example.utilisateur.projetmadrental;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewDebug;
 import android.view.ViewGroup;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.List;
 
@@ -27,6 +29,13 @@ public class ListeAdapter extends RecyclerView.Adapter<ListeViewHolder>
     @Override
     public void onBindViewHolder(ListeViewHolder holder, int position)
     {
+
+        //holder.textViewimageURL.
+        //Picasso.with(ReservationActivity.this)
+          //      .load("s519716619.onlinehome.fr/exchange/madrental/images/"+listObjc.get(position).imageURL)
+            //    .fit()
+              //  .centerCrop() // ou centerInside()
+                //.into((Target) holder.textViewimageURL);
         holder.textViewLibelleIntutile.setText(listObjc.get(position).intitule);
         holder.textViewLibellePrix.setText(" - "+String.valueOf(listObjc.get(position).prix)+" € ");
         holder.textViewLibelleDebut.setText("Date de début :"+listObjc.get(position).debut);
@@ -37,4 +46,5 @@ public class ListeAdapter extends RecyclerView.Adapter<ListeViewHolder>
     {
         return listObjc.size();
     }
+
 }

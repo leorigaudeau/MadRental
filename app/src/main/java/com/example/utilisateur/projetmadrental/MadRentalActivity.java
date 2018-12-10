@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
+
 public class MadRentalActivity extends AppCompatActivity {
 
     TextView Title;
@@ -54,6 +55,14 @@ public class MadRentalActivity extends AppCompatActivity {
             }
 
         });
+
+
+
+
+
+
+
+
 
 
 

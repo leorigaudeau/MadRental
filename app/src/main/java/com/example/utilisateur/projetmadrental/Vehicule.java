@@ -15,6 +15,10 @@ class Vehicule {
     private ArrayList<Equipement> equipement;
     private ArrayList<Optveh> otpion;
 
+    public Vehicule(Integer id, String nom) {
+        this.id = id;
+        this.nom = nom;
+    }
 
     public Integer getId() {
         return id;

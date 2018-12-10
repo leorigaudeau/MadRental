@@ -3,6 +3,8 @@ package com.example.utilisateur.projetmadrental;
 import android.preference.PreferenceActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -32,12 +34,12 @@ public class RechercheVecActivity extends AppCompatActivity {
         // paramètres :
         RequestParams requestParams = new RequestParams();
         requestParams.put("parametre", "1234");
-        // appel :
+        // Appel :
         client.post("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", requestParams, new AsyncHttpResponseHandler()
         {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] response)
-            {
+            {   Log.i("RenduJson", "in success");
                 String retour = new String(response);
                 Gson gson = new Gson();
                 List<Vehicule> listeVehicules = new ArrayList<>();
@@ -49,13 +51,18 @@ public class RechercheVecActivity extends AppCompatActivity {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         Vehicule vehicule = gson.fromJson(jsonObject.toString(), Vehicule.class);
                         listeVehicules.add(vehicule);
-
                     }
+
                 }
                 catch (Exception e)
                 {
+                    Log.i("RenduJson", "error"+String.valueOf(listeVehicules));
+
                     e.printStackTrace();
                 }
+
+
+
             }
             @Override
             public void onFailure(int statusCode, Header[] headers,
@@ -64,6 +71,24 @@ public class RechercheVecActivity extends AppCompatActivity {
                 Log.e("infoJson", e.toString());
             }
         });
+
+        // init :
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_recherche_vec);
+        RecyclerView recyclerView = findViewById(R.id.liste_resa);
+        // à ajouter pour de meilleures performances :
+        recyclerView.setHasFixedSize(true);
+        // layout manager, décrivant comment les items sont disposés :
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        // contenu d'exemple :
+        List<Vehicule> listvehicule = new ArrayList<>();
+        listvehicule.add(new Vehicule(1,"buggy"));
+        listvehicule.add(new Vehicule(2,"hammer"));
+        // adapter :
+        ListeAdapter listeAdapter = new ListeAdapter(listvehicule);
+        recyclerView.setAdapter(listeAdapter);
+
 
     }
 
