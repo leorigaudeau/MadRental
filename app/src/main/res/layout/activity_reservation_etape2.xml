@@ -6,4 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".ReservationEtape2">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="285dp"
+        android:layout_height="wrap_content"
+
+        android:text="Merci de saisir ici vos demandes spécifiques :"
+        android:textAllCaps="false"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/titreprofil"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <EditText
+        android:id="@+id/INPCommentaire"
+        android:layout_width="355dp"
+        android:layout_height="170dp"
+        android:hint="Votre message . . ."
+        android:textColor="@color/colorTextButton2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="18dp"
+        android:background="@color/bgcommentaire"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginTop="35dp"
+        android:textAlignment="gravity"
+        android:paddingBottom="140dp"
+        android:paddingLeft="15dp"
+
+        />
+    <Button
+        android:id="@+id/BTNvalider"
+        android:layout_width="296dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/background"
+        android:text="Valider"
+        android:textAllCaps="false"
+        android:textColor="@color/colorTextButton"
+        android:textSize="25dp"
+
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/INPCommentaire" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Prix inal : "
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="35dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/INPCommentaire"
+        />
+
+
 </android.support.constraint.ConstraintLayout>
