@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,11 +27,11 @@ public class ReservationActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         // contenu d'exemple :
         List<ObjtReservation> listObjc = new ArrayList<>();
-            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019"));
-            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019"));
-            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019"));
-            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019"));
-            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019"));
+            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019","zoom-buggy.jpg"));
+            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019","zoom-buggy.jpg"));
+            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019","zoom-buggy.jpg"));
+            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019","zoom-buggy.jpg"));
+            listObjc.add(new ObjtReservation("Buggy",194,"19/12/2018","25/01/2019","zoom-buggy.jpg"));
         // adapter :
         ListeAdapter coursesAdapter = new ListeAdapter(listObjc);
         recyclerView.setAdapter(coursesAdapter);
