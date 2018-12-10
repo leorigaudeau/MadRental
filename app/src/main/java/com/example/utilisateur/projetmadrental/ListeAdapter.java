@@ -29,11 +29,12 @@ public class ListeAdapter extends RecyclerView.Adapter<ListeViewHolder>
     @Override
     public void onBindViewHolder(ListeViewHolder holder, int position)
     {
-
         //holder.textViewimageURL.
-        //Picasso.with(holder.imageViewimageURL.getContext())
-          //      .load("s519716619.onlinehome.fr/exchange/madrental/images/"+listObjc.get(position).imageURL)
-        //        .into((Target) holder.imageViewimageURL);
+        Picasso.with(holder.imageViewimageURL.getContext())
+              .load("http://s519716619.onlinehome.fr/exchange/madrental/images/"+listObjc.get(position).imageURL)
+                .fit()
+                .centerCrop()
+                .into(holder.imageViewimageURL);
 
         holder.textViewLibelleIntutile.setText(listObjc.get(position).intitule);
         holder.textViewLibellePrix.setText(" - "+String.valueOf(listObjc.get(position).prix)+" € ");

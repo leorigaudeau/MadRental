@@ -5,7 +5,7 @@
 
 
     <TextView
-        android:id="@+id/libelle_course"
+        android:id="@+id/libelle_vehicule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

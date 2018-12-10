@@ -80,9 +80,16 @@ public class RechercheVecActivity extends AppCompatActivity {
 
                         }
                         Vehicule vehicule = new Vehicule(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category,listeEquipement,listeOptveh);
-
                         listeVehicules.add(vehicule);
 
+                        RecyclerView recyclerView = findViewById(R.id.liste_rechVec);
+                        // à ajouter pour de meilleures performances :
+                        recyclerView.setHasFixedSize(true);
+                        // layout manager, décrivant comment les items sont disposés :
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(RechercheVecActivity.this);
+                        recyclerView.setLayoutManager(layoutManager);
+                        VehiculeViewAdapter coursesAdapter = new VehiculeViewAdapter(listeVehicules);
+                        recyclerView.setAdapter(coursesAdapter);
 
                     }
                 }
