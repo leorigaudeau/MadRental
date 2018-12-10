@@ -82,9 +82,9 @@ public class RechercheVecActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         // contenu d'exemple :
-        List<Vehicule> listvehicule = new ArrayList<>();
-        listvehicule.add(new Vehicule(1,"buggy"));
-        listvehicule.add(new Vehicule(2,"hammer"));
+        List<ObjtReservation> listvehicule = new ArrayList<>();
+        listvehicule.add(new ObjtReservation("buggy",94,"19/02/2018","19/02/2018",""));
+        listvehicule.add(new ObjtReservation("buggy",94,"19/02/2018","19/02/2018",""));
         // adapter :
         ListeAdapter listeAdapter = new ListeAdapter(listvehicule);
         recyclerView.setAdapter(listeAdapter);

@@ -46,5 +46,4 @@ public class ListeAdapter extends RecyclerView.Adapter<ListeViewHolder>
     {
         return listObjc.size();
     }
-
 }
