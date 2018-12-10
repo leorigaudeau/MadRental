@@ -31,11 +31,10 @@ public class ListeAdapter extends RecyclerView.Adapter<ListeViewHolder>
     {
 
         //holder.textViewimageURL.
-        //Picasso.with(ReservationActivity.this)
+        //Picasso.with(holder.imageViewimageURL.getContext())
           //      .load("s519716619.onlinehome.fr/exchange/madrental/images/"+listObjc.get(position).imageURL)
-            //    .fit()
-              //  .centerCrop() // ou centerInside()
-                //.into((Target) holder.textViewimageURL);
+        //        .into((Target) holder.imageViewimageURL);
+
         holder.textViewLibelleIntutile.setText(listObjc.get(position).intitule);
         holder.textViewLibellePrix.setText(" - "+String.valueOf(listObjc.get(position).prix)+" € ");
         holder.textViewLibelleDebut.setText("Date de début :"+listObjc.get(position).debut);

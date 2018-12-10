@@ -5,6 +5,12 @@ class Optveh {
     private String nom;
     private  Integer prix;
 
+    public Optveh(Integer id, String nom, Integer prix) {
+        this.id = id;
+        this.nom = nom;
+        this.prix = prix;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -7,17 +7,25 @@ class Vehicule {
     private Integer id;
     private String nom;
     private String image;
-    private boolean disponible;
+    private Integer disponible;
     private Integer prixjournalierbase;
     private Integer promotion;
     private Integer agemin;
     private String categorieco2;
-    private ArrayList<Equipement> equipement;
-    private ArrayList<Optveh> otpion;
+    private ArrayList<Equipement> equipements;
+    private ArrayList<Optveh> otpions;
 
-    public Vehicule(Integer id, String nom) {
+    public Vehicule(Integer id, String nom, String image, Integer disponible, Integer prixjournalierbase, Integer promotion, Integer agemin, String categorieco2, ArrayList<Equipement> equipements, ArrayList<Optveh> otpions) {
         this.id = id;
         this.nom = nom;
+        this.image = image;
+        this.disponible = disponible;
+        this.prixjournalierbase = prixjournalierbase;
+        this.promotion = promotion;
+        this.agemin = agemin;
+        this.categorieco2 = categorieco2;
+        this.equipements = equipements;
+        this.otpions = otpions;
     }
 
     public Integer getId() {
@@ -44,11 +52,11 @@ class Vehicule {
         this.image = image;
     }
 
-    public boolean isDisponible() {
+    public Integer getDisponible() {
         return disponible;
     }
 
-    public void setDisponible(boolean disponible) {
+    public void setDisponible(Integer disponible) {
         this.disponible = disponible;
     }
 
@@ -84,19 +92,19 @@ class Vehicule {
         this.categorieco2 = categorieco2;
     }
 
-    public ArrayList<Equipement> getEquipement() {
-        return equipement;
+    public ArrayList<Equipement> getEquipements() {
+        return equipements;
     }
 
-    public void setEquipement(ArrayList<Equipement> equipement) {
-        this.equipement = equipement;
+    public void setEquipements(ArrayList<Equipement> equipements) {
+        this.equipements = equipements;
     }
 
-    public ArrayList<Optveh> getOtpion() {
-        return otpion;
+    public ArrayList<Optveh> getOtpions() {
+        return otpions;
     }
 
-    public void setOtpion(ArrayList<Optveh> otpion) {
-        this.otpion = otpion;
+    public void setOtpions(ArrayList<Optveh> otpions) {
+        this.otpions = otpions;
     }
 }
