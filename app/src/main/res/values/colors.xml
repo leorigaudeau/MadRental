@@ -6,5 +6,6 @@
     <color name="colorTextButton">#ffffff</color>
     <color name="colorTextButton2">#8d9daa</color>
     <color name="titreprofil">#060605</color>
+    <color name ="bgcommentaire">#e6e5e5</color>
 
 </resources>

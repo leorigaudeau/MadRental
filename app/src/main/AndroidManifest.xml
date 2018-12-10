@@ -9,13 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MadRentalActivity">
-        <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-            android:label="Mad Rental">
+
+        <activity android:name=".MadRentalActivity"
+            android:label = "Mad Rental">
+
+
 
         </activity>
         <activity android:name=".ReservationActivity"
@@ -37,7 +36,13 @@
         </activity>
         <activity android:name=".ReservationEtape2"
             android:label="Etape 2/2 : Reservation"
-            android:parentActivityName=".ReservationEtape1"></activity>
+            android:parentActivityName=".ReservationEtape1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
