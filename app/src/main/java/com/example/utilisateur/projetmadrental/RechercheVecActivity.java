@@ -43,16 +43,55 @@ public class RechercheVecActivity extends AppCompatActivity {
                 String retour = new String(response);
                 Gson gson = new Gson();
                 List<Vehicule> listeVehicules = new ArrayList<>();
+                ArrayList<Equipement> listeEquipement = new ArrayList<>();
+                ArrayList<Optveh> listeOptveh = new ArrayList<>();
                 try
                 {
                     JSONArray jsonArray = new JSONArray(retour);
                     for (int i = 0 ; i < jsonArray.length() ; i++)
                     {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        Vehicule vehicule = gson.fromJson(jsonObject.toString(), Vehicule.class);
-                        listeVehicules.add(vehicule);
-                    }
+                        Integer vID =Integer.parseInt(jsonObject.getString("id"));
+                        String vName = jsonObject.getString("nom");
+                        String vImage = jsonObject.getString("image");
+                        Integer vAvailable = Integer.parseInt(jsonObject.getString("disponible"));
+                        Integer vBaseDailyPrice = Integer.parseInt(jsonObject.getString("prixjournalierbase"));
+                        Integer vSale = Integer.parseInt(jsonObject.getString("promotion"));
+                        Integer vAgeMin = Integer.parseInt(jsonObject.getString("agemin"));
+                        String vCO2Category = jsonObject.getString("categorieco2");
+                        JSONArray vEquipments = jsonObject.getJSONArray("equipements");
+                        JSONArray vOptions = jsonObject.getJSONArray("options");
 
+
+                        for (int e = 0 ; e < vEquipments.length() ; e++){
+                            JSONObject jsonObjectEquiment = vEquipments.getJSONObject(e);
+                            Integer eid= Integer.parseInt(jsonObjectEquiment.getString("id"));
+                            String eName = jsonObjectEquiment.getString("nom");
+                            listeEquipement.add(new Equipement(eid,eName));
+                        }
+
+                        for (int o = 0 ; o < vOptions.length() ; o++){
+                            JSONObject jsonObjectOption = vOptions.getJSONObject(o);
+                            Integer oid= Integer.parseInt(jsonObject.getString("id"));
+                            String oName = jsonObjectOption.getString("nom");
+                            Integer oprix= Integer.parseInt(jsonObjectOption.getString("prix"));
+                            listeOptveh.add(new Optveh(oid,oName,oprix));
+
+
+                        }
+                        Vehicule vehicule = new Vehicule(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category,listeEquipement,listeOptveh);
+                        listeVehicules.add(vehicule);
+
+                        RecyclerView recyclerView = findViewById(R.id.liste_rechVec);
+                        // à ajouter pour de meilleures performances :
+                        recyclerView.setHasFixedSize(true);
+                        // layout manager, décrivant comment les items sont disposés :
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(RechercheVecActivity.this);
+                        recyclerView.setLayoutManager(layoutManager);
+                        VehiculeViewAdapter coursesAdapter = new VehiculeViewAdapter(listeVehicules);
+                        recyclerView.setAdapter(coursesAdapter);
+
+                    }
                 }
                 catch (Exception e)
                 {
@@ -60,9 +99,7 @@ public class RechercheVecActivity extends AppCompatActivity {
 
                     e.printStackTrace();
                 }
-
-
-
+                Log.i("RenduJson", "final"+String.valueOf(listeVehicules));
             }
             @Override
             public void onFailure(int statusCode, Header[] headers,
@@ -72,22 +109,6 @@ public class RechercheVecActivity extends AppCompatActivity {
             }
         });
 
-        // init :
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recherche_vec);
-        RecyclerView recyclerView = findViewById(R.id.liste_resa);
-        // à ajouter pour de meilleures performances :
-        recyclerView.setHasFixedSize(true);
-        // layout manager, décrivant comment les items sont disposés :
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        // contenu d'exemple :
-        List<ObjtReservation> listvehicule = new ArrayList<>();
-        listvehicule.add(new ObjtReservation("buggy",94,"19/02/2018","19/02/2018",""));
-        listvehicule.add(new ObjtReservation("buggy",94,"19/02/2018","19/02/2018",""));
-        // adapter :
-        ListeAdapter listeAdapter = new ListeAdapter(listvehicule);
-        recyclerView.setAdapter(listeAdapter);
 
 
     }

@@ -13,6 +13,8 @@
 
         <activity android:name=".MadRentalActivity"
             android:label = "Mad Rental">
+<<<<<<< HEAD
+=======
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,11 +22,11 @@
             </intent-filter>
 
 
+>>>>>>> a68a1fa76e365d4807dbd63c3f298b40527c7891
         </activity>
         <activity android:name=".ReservationActivity"
             android:label="Mes Reservations"
             android:parentActivityName=".MadRentalActivity">
-
         </activity>
         <activity android:name=".ProfilActivity"
             android:label="Mon profil"
@@ -32,6 +34,11 @@
         <activity android:name=".RechercheVecActivity"
             android:label="Recherche Vehicule"
             android:parentActivityName=".MadRentalActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".ReservationEtape1"
             android:label="Etape 1/2 : Reservation"

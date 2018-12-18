@@ -5,6 +5,11 @@ class Equipement {
     private Integer id;
     private String nom;
 
+    public Equipement(Integer id, String nom) {
+        this.id = id;
+        this.nom = nom;
+    }
+
     public Integer getId() {
         return id;
     }

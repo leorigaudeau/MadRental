@@ -29,13 +29,13 @@ public class ListeAdapter extends RecyclerView.Adapter<ListeViewHolder>
     @Override
     public void onBindViewHolder(ListeViewHolder holder, int position)
     {
-
         //holder.textViewimageURL.
-        //Picasso.with(ReservationActivity.this)
-          //      .load("s519716619.onlinehome.fr/exchange/madrental/images/"+listObjc.get(position).imageURL)
-            //    .fit()
-              //  .centerCrop() // ou centerInside()
-                //.into((Target) holder.textViewimageURL);
+        Picasso.with(holder.imageViewimageURL.getContext())
+              .load("http://s519716619.onlinehome.fr/exchange/madrental/images/"+listObjc.get(position).imageURL)
+                .fit()
+                .centerCrop()
+                .into(holder.imageViewimageURL);
+
         holder.textViewLibelleIntutile.setText(listObjc.get(position).intitule);
         holder.textViewLibellePrix.setText(" - "+String.valueOf(listObjc.get(position).prix)+" € ");
         holder.textViewLibelleDebut.setText("Date de début :"+listObjc.get(position).debut);

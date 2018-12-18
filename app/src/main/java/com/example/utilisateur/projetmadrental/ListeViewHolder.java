@@ -2,6 +2,7 @@ package com.example.utilisateur.projetmadrental;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ListeViewHolder extends RecyclerView.ViewHolder
@@ -11,7 +12,7 @@ public class ListeViewHolder extends RecyclerView.ViewHolder
     public TextView textViewLibellePrix;
     public TextView textViewLibelleDebut;
     public TextView textViewLibelleFin;
-    public TextView textViewimageURL;
+    public ImageView imageViewimageURL;
     // Constructeur :
     public ListeViewHolder(View itemView)
     {
@@ -20,7 +21,7 @@ public class ListeViewHolder extends RecyclerView.ViewHolder
         textViewLibellePrix = itemView.findViewById(R.id.object_prix);
         textViewLibelleDebut = itemView.findViewById(R.id.object_debut);
         textViewLibelleFin = itemView.findViewById(R.id.object_fin);
-       // textViewimageURL = itemView.findViewById(R.id.object_image);
+        imageViewimageURL = itemView.findViewById(R.id.object_image);
 
     }
 }
