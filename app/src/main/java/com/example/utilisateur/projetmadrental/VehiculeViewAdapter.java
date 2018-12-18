@@ -40,7 +40,7 @@ public class VehiculeViewAdapter extends RecyclerView.Adapter<VehiculeViewHolder
         holder.textViewLibelleCO2.setText("Catégorie CO2 : "+listeCourses.get(position).getCategorieco2());
         holder.textViewLibelleprix.setText(String.valueOf(listeCourses.get(position).getPrixjournalierbase()+"€ / jour"));
         if (listeCourses.get(position).getPromotion()!=0){
-            holder.textViewLibellePromotion.setBackgroundColor(Color.RED);
+
             holder.textViewLibellePromotion.setText("-"+listeCourses.get(position).getPromotion()+"%");
         }
     }
