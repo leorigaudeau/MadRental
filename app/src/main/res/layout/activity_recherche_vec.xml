@@ -9,7 +9,21 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/liste_rechVec"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Filter"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:background="#ffffff"
+        />
 
 
 </android.support.constraint.ConstraintLayout>

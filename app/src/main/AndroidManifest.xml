@@ -14,10 +14,6 @@
         <activity android:name=".MadRentalActivity"
             android:label = "Mad Rental">
 
-
-
-
-
         </activity>
         <activity android:name=".ReservationActivity"
             android:label="Mes Reservations"
