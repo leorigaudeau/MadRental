@@ -13,16 +13,6 @@
 
         <activity android:name=".MadRentalActivity"
             android:label = "Mad Rental">
-<<<<<<< HEAD
-=======
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
->>>>>>> a68a1fa76e365d4807dbd63c3f298b40527c7891
         </activity>
         <activity android:name=".ReservationActivity"
             android:label="Mes Reservations"

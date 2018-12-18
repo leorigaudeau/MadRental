@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ImageView
+        android:id="@+id/image_vehicule"
+        android:layout_width="110dp"
+        android:layout_height="80dp"
+        android:padding="5dp"/>
+    <TextView
+        android:id="@+id/Promotion_vehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="@+id/image_vehicule"
+        />
 
     <TextView
         android:id="@+id/libelle_vehicule"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Nom"
+        app:layout_constraintLeft_toRightOf="@+id/image_vehicule"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:paddingTop="8dp"
+        />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/prix_vehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="prix € / jour"
+        app:layout_constraintLeft_toRightOf="@+id/image_vehicule"
+        app:layout_constraintTop_toBottomOf="@id/libelle_vehicule"/>
+
+    <TextView
+        android:id="@+id/co2_vehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Catégorie Co2 : G"
+        app:layout_constraintTop_toBottomOf="@+id/prix_vehicule"
+        app:layout_constraintLeft_toRightOf="@+id/image_vehicule"/>
+
+
+
+</android.support.constraint.ConstraintLayout>
