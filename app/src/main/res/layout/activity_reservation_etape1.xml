@@ -77,71 +77,51 @@
         app:layout_constraintTop_toBottomOf="@+id/equip"
         android:background="@color/bgoptions"
         />
+
     <TextView
 
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="60dp"
+        android:paddingTop="10dp"
         android:text="Mitrailleuse : 29 €"
         android:textAlignment="center"
-        android:paddingTop="10dp"
         android:textSize="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/equip"
-        />
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:text="Oui"
-        app:layout_constraintTop_toBottomOf="@+id/equip"
-        android:layout_marginTop="65dp"
-
-        />
-
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
-        android:text="Non"
-        app:layout_constraintStart_toEndOf="@+id/btn1"
         app:layout_constraintTop_toBottomOf="@+id/equip" />
-    <Button
-        android:id="@+id/btn3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:text="Oui"
-        app:layout_constraintTop_toBottomOf="@+id/equip"
-        android:layout_marginTop="100dp"
 
-        />
+    <Switch
+        android:id="@+id/btnopt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        tools:layout_editor_absoluteX="52dp"
+        tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btn4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="100dp"
-        android:text="Non"
-        app:layout_constraintStart_toEndOf="@+id/btn1"
-        app:layout_constraintTop_toBottomOf="@+id/equip" />
+    <Switch
+        android:id="@+id/btnopt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/options"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        tools:layout_editor_absoluteX="52dp"
+        tools:ignore="MissingConstraints" />
+
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="96dp"
+        android:paddingTop="10dp"
         android:text="Lance-flamme : 49 €"
         android:textAlignment="center"
-        android:paddingTop="10dp"
         android:textSize="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/equip"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/equip" />
 
     <Button
         android:id="@+id/BTNvalider"

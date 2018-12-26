@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.utilisateur.projetmadrental">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,20 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-        <activity android:name=".MadRentalActivity"
-            android:label = "Mad Rental">
-
-        </activity>
-        <activity android:name=".ReservationActivity"
+        <activity
+            android:name=".MadRentalActivity"
+            android:label="Mad Rental"></activity>
+        <activity
+            android:name=".ReservationActivity"
             android:label="Mes Reservations"
-            android:parentActivityName=".MadRentalActivity">
-        </activity>
-        <activity android:name=".ProfilActivity"
+            android:parentActivityName=".MadRentalActivity"></activity>
+        <activity
+            android:name=".ProfilActivity"
             android:label="Mon profil"
-            android:parentActivityName=".MadRentalActivity"/>
-        <activity android:name=".RechercheVecActivity"
+            android:parentActivityName=".MadRentalActivity" />
+        <activity
+            android:name=".RechercheVecActivity"
             android:label="Recherche Vehicule"
             android:parentActivityName=".MadRentalActivity">
             <intent-filter>
@@ -31,16 +32,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ReservationEtape1"
+        <activity
+            android:name=".ReservationEtape1"
             android:label="Etape 1/2 : Reservation"
-            android:parentActivityName=".RechercheVecActivity">
-
-        </activity>
-        <activity android:name=".ReservationEtape2"
+            android:parentActivityName=".RechercheVecActivity"></activity>
+        <activity
+            android:name=".ReservationEtape2"
             android:label="Etape 2/2 : Reservation"
-            android:parentActivityName=".ReservationEtape1">
-
-        </activity>
+            android:parentActivityName=".ReservationEtape1"></activity>
     </application>
 
 </manifest>
