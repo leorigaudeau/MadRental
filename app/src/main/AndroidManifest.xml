@@ -13,19 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MadRentalActivity"
-            android:label="Mad Rental"></activity>
-        <activity
-            android:name=".ReservationActivity"
-            android:label="Mes Reservations"
-            android:parentActivityName=".MadRentalActivity"></activity>
-        <activity
-            android:name=".ProfilActivity"
-            android:label="Mon profil"
-            android:parentActivityName=".MadRentalActivity" />
-        <activity
-            android:name=".RechercheVecActivity"
-            android:label="Recherche Vehicule"
-            android:parentActivityName=".MadRentalActivity">
+            android:label="Mad Rental">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,13 +21,26 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ReservationActivity"
+            android:label="Mes Reservations"
+            android:parentActivityName=".MadRentalActivity" />
+        <activity
+            android:name=".ProfilActivity"
+            android:label="Mon profil"
+            android:parentActivityName=".MadRentalActivity" />
+        <activity
+            android:name=".RechercheVecActivity"
+            android:label="Recherche Vehicule"
+            android:parentActivityName=".MadRentalActivity"></activity>
+        <activity
             android:name=".ReservationEtape1"
             android:label="Etape 1/2 : Reservation"
-            android:parentActivityName=".RechercheVecActivity"></activity>
+            android:parentActivityName=".RechercheVecActivity" />
         <activity
             android:name=".ReservationEtape2"
             android:label="Etape 2/2 : Reservation"
-            android:parentActivityName=".ReservationEtape1"></activity>
+            android:parentActivityName=".ReservationEtape1" />
+        <activity android:name=".test"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.utilisateur.projetmadrental;
 
 import android.animation.LayoutTransition;
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.nfc.Tag;
@@ -25,6 +26,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
@@ -50,6 +52,7 @@ public class RechercheVecActivity extends AppCompatActivity {
         requestParams.put("parametre", "1234");
         // Appel :
         client.post("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", requestParams, new AsyncHttpResponseHandler() {
+            @SuppressLint("WrongViewCast")
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] response) {
                 Log.i("RenduJson", "in success");
@@ -60,8 +63,9 @@ public class RechercheVecActivity extends AppCompatActivity {
                 ArrayList<Optveh> listeOptveh = new ArrayList<>();
                 try {
                     JSONArray jsonArray = new JSONArray(retour);
+                    View item = findViewById(R.id.frameobjrech);
                     for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        final JSONObject jsonObject = jsonArray.getJSONObject(i);
                         Integer vID = Integer.parseInt(jsonObject.getString("id"));
                         String vName = jsonObject.getString("nom");
                         String vImage = jsonObject.getString("image");
@@ -93,6 +97,18 @@ public class RechercheVecActivity extends AppCompatActivity {
                         Vehicule vehicule = new Vehicule(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, listeEquipement, listeOptveh);
                         listeVehicules.add(vehicule);
 
+                        //listner by ID
+
+                        item.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(RechercheVecActivity.this,test.class);
+                                intent.putExtra("id", 123);
+                                startActivity(intent);
+                            }
+                        });
+
+
                         RecyclerView recyclerView = findViewById(R.id.liste_rechVec);
                         // à ajouter pour de meilleures performances :
                         recyclerView.setHasFixedSize(true);
@@ -121,7 +137,6 @@ public class RechercheVecActivity extends AppCompatActivity {
         parent.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
 
-
         View text = findViewById(R.id.text);
         text.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,14 +156,14 @@ public class RechercheVecActivity extends AppCompatActivity {
         s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // client HTTP :
+                AsyncHttpClient client = new AsyncHttpClient();
+                // paramètres :
+                RequestParams requestParams = new RequestParams();
                 if (s.isChecked()){
-                    // client HTTP :
-                    AsyncHttpClient client = new AsyncHttpClient();
-                    // paramètres :
-                    RequestParams requestParams = new RequestParams();
-                    requestParams.put("parametre", "1234");
+                    requestParams.put("promotion", "1");
                     // Appel :
-                    client.post("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", requestParams, new AsyncHttpResponseHandler() {
+                    client.get("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", requestParams, new AsyncHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, byte[] response) {
                             Log.i("RenduJson", "in success");
@@ -161,9 +176,6 @@ public class RechercheVecActivity extends AppCompatActivity {
                                 JSONArray jsonArray = new JSONArray(retour);
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                    if (Integer.parseInt(jsonObject.getString("promotion"))==0){
-                                        continue;
-                                    }
                                     Integer vID = Integer.parseInt(jsonObject.getString("id"));
                                     String vName = jsonObject.getString("nom");
                                     String vImage = jsonObject.getString("image");
@@ -219,13 +231,7 @@ public class RechercheVecActivity extends AppCompatActivity {
                             Log.e("infoJson", e.toString());
                         }
                     });
-                    LinearLayout parent = (LinearLayout)findViewById(R.id.parent);
-                    parent.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
                 }else{
-                    // client HTTP :
-                    AsyncHttpClient client = new AsyncHttpClient();
-                    // paramètres :
-                    RequestParams requestParams = new RequestParams();
                     requestParams.put("parametre", "1234");
                     // Appel :
                     client.post("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", requestParams, new AsyncHttpResponseHandler() {
@@ -296,13 +302,10 @@ public class RechercheVecActivity extends AppCompatActivity {
                             Log.e("infoJson", e.toString());
                         }
                     });
-                    LinearLayout parent = (LinearLayout)findViewById(R.id.parent);
-                    parent.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
                 }
+                LinearLayout parent = (LinearLayout)findViewById(R.id.parent);
+                parent.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
             }
         });
-
-
-
     }
 }
