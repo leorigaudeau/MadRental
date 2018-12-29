@@ -56,24 +56,15 @@ public class MadRentalActivity extends AppCompatActivity {
 
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         Title = (TextView)findViewById(R.id.title);
 
         ultrafresh = Typeface.createFromAsset(getAssets(), "ultrafresh.ttf");
 
         Title.setTypeface(ultrafresh);
 
+
+        //DatabaseHelper databaseHelper = new DatabaseHelper(this);
+        //databaseHelper.getWritableDatabase();
     }
+
 }

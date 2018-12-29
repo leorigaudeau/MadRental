@@ -12,34 +12,40 @@
         android:layout_height="wrap_content"
         />
 
-    <LinearLayout android:id="@+id/parent"
+    <LinearLayout
+        android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:animateLayoutChanges="true"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:ignore="MissingConstraints">
+
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:background="#ffffff"
+            android:gravity="center"
             android:text="Filter"
+            android:textAlignment="center"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:background="#ffffff"
 
             />
+
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/message"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:id="@+id/message"
             android:background="#ffffff">
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="Promotions"
                 android:textAlignment="center"
@@ -47,15 +53,42 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Switch
                 android:id="@+id/switchfilt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 app:layout_constraintEnd_toStartOf="@+id/textView4"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Agemini"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Min 21ans "
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <Switch
+                android:id="@+id/switchfiltAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/Agemini"
+                app:layout_constraintTop_toBottomOf="@+id/switchfilt" />
+
         </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>

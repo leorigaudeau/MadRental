@@ -39,7 +39,6 @@ import java.util.List;
 import cz.msebera.android.httpclient.Header;
 
 public class RechercheVecActivity extends AppCompatActivity {
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +62,7 @@ public class RechercheVecActivity extends AppCompatActivity {
                 ArrayList<Optveh> listeOptveh = new ArrayList<>();
                 try {
                     JSONArray jsonArray = new JSONArray(retour);
-                    View item = findViewById(R.id.frameobjrech);
+
                     for (int i = 0; i < jsonArray.length(); i++) {
                         final JSONObject jsonObject = jsonArray.getJSONObject(i);
                         Integer vID = Integer.parseInt(jsonObject.getString("id"));
@@ -97,16 +96,7 @@ public class RechercheVecActivity extends AppCompatActivity {
                         Vehicule vehicule = new Vehicule(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, listeEquipement, listeOptveh);
                         listeVehicules.add(vehicule);
 
-                        //listner by ID
 
-                        item.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(RechercheVecActivity.this,test.class);
-                                intent.putExtra("id", 123);
-                                startActivity(intent);
-                            }
-                        });
 
 
                         RecyclerView recyclerView = findViewById(R.id.liste_rechVec);
@@ -153,6 +143,7 @@ public class RechercheVecActivity extends AppCompatActivity {
 
 
         final Switch s = findViewById(R.id.switchfilt);
+        final Switch sa = findViewById(R.id.switchfiltAge);
         s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,8 +151,12 @@ public class RechercheVecActivity extends AppCompatActivity {
                 AsyncHttpClient client = new AsyncHttpClient();
                 // paramètres :
                 RequestParams requestParams = new RequestParams();
-                if (s.isChecked()){
+                if (s.isChecked()) {
                     requestParams.put("promotion", "1");
+                }
+                if (sa.isChecked());{
+                    requestParams.put("agemin","21");
+                }
                     // Appel :
                     client.get("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", requestParams, new AsyncHttpResponseHandler() {
                         @Override
@@ -231,78 +226,92 @@ public class RechercheVecActivity extends AppCompatActivity {
                             Log.e("infoJson", e.toString());
                         }
                     });
-                }else{
-                    requestParams.put("parametre", "1234");
-                    // Appel :
-                    client.post("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", requestParams, new AsyncHttpResponseHandler() {
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, byte[] response) {
-                            Log.i("RenduJson", "in success");
-                            String retour = new String(response);
-                            Gson gson = new Gson();
-                            List<Vehicule> listeVehicules = new ArrayList<>();
-                            ArrayList<Equipement> listeEquipement = new ArrayList<>();
-                            ArrayList<Optveh> listeOptveh = new ArrayList<>();
-                            try {
-                                JSONArray jsonArray = new JSONArray(retour);
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                    Integer vID = Integer.parseInt(jsonObject.getString("id"));
-                                    String vName = jsonObject.getString("nom");
-                                    String vImage = jsonObject.getString("image");
-                                    Integer vAvailable = Integer.parseInt(jsonObject.getString("disponible"));
-                                    Integer vBaseDailyPrice = Integer.parseInt(jsonObject.getString("prixjournalierbase"));
-                                    Integer vSale = Integer.parseInt(jsonObject.getString("promotion"));
-                                    Integer vAgeMin = Integer.parseInt(jsonObject.getString("agemin"));
-                                    String vCO2Category = jsonObject.getString("categorieco2");
-                                    JSONArray vEquipments = jsonObject.getJSONArray("equipements");
-                                    JSONArray vOptions = jsonObject.getJSONArray("options");
+                LinearLayout parent = (LinearLayout)findViewById(R.id.parent);
+                parent.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+            }
+        });
+        sa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // client HTTP :
+                AsyncHttpClient client = new AsyncHttpClient();
+                // paramètres :
+                RequestParams requestParams = new RequestParams();
+                if (s.isChecked()) {
+                    requestParams.put("promotion", "1");
+                }
+                if (sa.isChecked());{
+                    requestParams.put("agemin","21");
+                }
+                // Appel :
+                client.get("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", requestParams, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] response) {
+                        Log.i("RenduJson", "in success");
+                        String retour = new String(response);
+                        Gson gson = new Gson();
+                        List<Vehicule> listeVehicules = new ArrayList<>();
+                        ArrayList<Equipement> listeEquipement = new ArrayList<>();
+                        ArrayList<Optveh> listeOptveh = new ArrayList<>();
+                        try {
+                            JSONArray jsonArray = new JSONArray(retour);
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                Integer vID = Integer.parseInt(jsonObject.getString("id"));
+                                String vName = jsonObject.getString("nom");
+                                String vImage = jsonObject.getString("image");
+                                Integer vAvailable = Integer.parseInt(jsonObject.getString("disponible"));
+                                Integer vBaseDailyPrice = Integer.parseInt(jsonObject.getString("prixjournalierbase"));
+                                Integer vSale = Integer.parseInt(jsonObject.getString("promotion"));
+                                Integer vAgeMin = Integer.parseInt(jsonObject.getString("agemin"));
+                                String vCO2Category = jsonObject.getString("categorieco2");
+                                JSONArray vEquipments = jsonObject.getJSONArray("equipements");
+                                JSONArray vOptions = jsonObject.getJSONArray("options");
 
 
-                                    for (int e = 0; e < vEquipments.length(); e++) {
-                                        JSONObject jsonObjectEquiment = vEquipments.getJSONObject(e);
-                                        Integer eid = Integer.parseInt(jsonObjectEquiment.getString("id"));
-                                        String eName = jsonObjectEquiment.getString("nom");
-                                        listeEquipement.add(new Equipement(eid, eName));
-                                    }
+                                for (int e = 0; e < vEquipments.length(); e++) {
+                                    JSONObject jsonObjectEquiment = vEquipments.getJSONObject(e);
+                                    Integer eid = Integer.parseInt(jsonObjectEquiment.getString("id"));
+                                    String eName = jsonObjectEquiment.getString("nom");
+                                    listeEquipement.add(new Equipement(eid, eName));
+                                }
 
-                                    for (int o = 0; o < vOptions.length(); o++) {
-                                        JSONObject jsonObjectOption = vOptions.getJSONObject(o);
-                                        Integer oid = Integer.parseInt(jsonObject.getString("id"));
-                                        String oName = jsonObjectOption.getString("nom");
-                                        Integer oprix = Integer.parseInt(jsonObjectOption.getString("prix"));
-                                        listeOptveh.add(new Optveh(oid, oName, oprix));
+                                for (int o = 0; o < vOptions.length(); o++) {
+                                    JSONObject jsonObjectOption = vOptions.getJSONObject(o);
+                                    Integer oid = Integer.parseInt(jsonObject.getString("id"));
+                                    String oName = jsonObjectOption.getString("nom");
+                                    Integer oprix = Integer.parseInt(jsonObjectOption.getString("prix"));
+                                    listeOptveh.add(new Optveh(oid, oName, oprix));
 
-
-                                    }
-                                    Vehicule vehicule = new Vehicule(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, listeEquipement, listeOptveh);
-                                    listeVehicules.add(vehicule);
-
-                                    RecyclerView recyclerView = findViewById(R.id.liste_rechVec);
-                                    // à ajouter pour de meilleures performances :
-                                    recyclerView.setHasFixedSize(true);
-                                    // layout manager, décrivant comment les items sont disposés :
-                                    LinearLayoutManager layoutManager = new LinearLayoutManager(RechercheVecActivity.this);
-                                    recyclerView.setLayoutManager(layoutManager);
-                                    VehiculeViewAdapter coursesAdapter = new VehiculeViewAdapter(listeVehicules);
-                                    recyclerView.setAdapter(coursesAdapter);
 
                                 }
-                            } catch (Exception e) {
-                                Log.i("RenduJson", "error" + String.valueOf(listeVehicules));
+                                Vehicule vehicule = new Vehicule(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, listeEquipement, listeOptveh);
+                                listeVehicules.add(vehicule);
 
-                                e.printStackTrace();
+                                RecyclerView recyclerView = findViewById(R.id.liste_rechVec);
+                                // à ajouter pour de meilleures performances :
+                                recyclerView.setHasFixedSize(true);
+                                // layout manager, décrivant comment les items sont disposés :
+                                LinearLayoutManager layoutManager = new LinearLayoutManager(RechercheVecActivity.this);
+                                recyclerView.setLayoutManager(layoutManager);
+                                VehiculeViewAdapter coursesAdapter = new VehiculeViewAdapter(listeVehicules);
+                                recyclerView.setAdapter(coursesAdapter);
+
                             }
-                            Log.i("RenduJson", "final" + String.valueOf(listeVehicules));
-                        }
+                        } catch (Exception e) {
+                            Log.i("RenduJson", "error" + String.valueOf(listeVehicules));
 
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers,
-                                              byte[] errorResponse, Throwable e) {
-                            Log.e("infoJson", e.toString());
+                            e.printStackTrace();
                         }
-                    });
-                }
+                        Log.i("RenduJson", "final" + String.valueOf(listeVehicules));
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers,
+                                          byte[] errorResponse, Throwable e) {
+                        Log.e("infoJson", e.toString());
+                    }
+                });
                 LinearLayout parent = (LinearLayout)findViewById(R.id.parent);
                 parent.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
             }
